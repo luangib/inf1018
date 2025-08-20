@@ -1,0 +1,116 @@
+
+(1, 2 , 3, 4.a)
+Fiz todo o processor para setar o terminal, depois compilei o codigo no arquivo e fiz com os testes com todos os inputs dados.
+
+luangib ➜ /workspaces/inf1018 (main) $ pwd
+/workspaces/inf1018
+@luangib ➜ /workspaces/inf1018 (main) $ cd b
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -wall -o ex1 ex1.c
+gcc: error: unrecognized command-line option ‘-wall’; did you mean ‘-Wall’?
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex1 ex1.c
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex1 4.0
+foo(4.00): 5.00
+@luangib ➜ /workspaces/inf1018/b (main) $ ^C
+@luangib ➜ /workspaces/inf1018/b (main) $ 
+
+
+Quando eu tento dar ./ex1 ele da o seguinte warning: uso do programa: ./ex1 <valor float>. Que significa que falta eu colcar o input para a função
+
+#Explicação da FOO
+A função foo pega um float e retorna esse float +1 e exibe uma mesangem mostrando os valores.
+
+# Explicação da main 
+Agora para epxlicar oqeu a main faz tive que pesquisar algumas coisas:
+
+Agrc é a contegem de argumentos no terminal, sendo que conta primeiro com o nome do programa.
+
+Arg v é o vetor com todos os argumentos passados pelo terminal.
+
+Então oque a main faz é que se são passados mais de 1 argumento(fora o nome) ele da uma mensagem de erro e sai do programa.
+Porém se foi passado somente 1 argumento(fora o nome) então ele passa o valor do primeiro argumento para a função foo(por meio do atof que é uma função que uma string qualquer para float)
+E a foo é realizada passando uma mensagem com o valor inserido e o retornado junto com o nome da função
+
+Pelo menos foi isso que eu entendi 
+
+Demorei bastante para entender oque tava acontecendo no programa então o terminal ficou meio confuso(alias tinha colocado algumas mensagens no programa para enteder o que estava satisfazendo o if)
+
+luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex1 ex1.c
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex1 4 2
+Começo do programa
+Agrc: 3 
+Entrou no if
+uso do programa: ./ex1 <valor float>
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex1 4 3
+Começo do programa
+Agrc: 3 
+Entrou no if
+uso do programa: ./ex1 <valor float>
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex1 4
+Começo do programa
+foo(4.00): 5.00
+@luangib ➜ /workspaces/inf1018/b (main) $ 
+
+
+# (4.b)Parte de Dividir o programa
+
+Fui fazendo os comandos assim como eles foram dados e pesquisando mais ou menos oque cada um significava
+
+pelo que entendi o -c significa compile only ouse seja ele não faz a link edição porém ainda assim produz arquivos no formato .o
+Já o -o ele indica que iremos colocar após o nome que queremos dar ao nosso arquivo de output. Se ele ão fosse usado o arquivo output seria o nome do objeto.
+
+Fiz primeiro a etapa em que fazia passo a passo e depois fiz o que fazia todo esse processo de uma vez.
+
+Testei o arquivo só uma única vez e deu certo.
+
+@luangib ➜ /workspaces/inf1018/b (main) $ mv ex1.c ex2.c
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -c ex2.c
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -c labaux.c
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex2 ex2.o labaux.o
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex2 ex2.c labaux.c
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex2 4
+foo(4.00): 5.00
+@luangib ➜ /workspaces/inf1018/b (main) $ 
+
+
+#(4 b) Testando coisas que são erro 
+
+Quando tentei compilar depois de ter tirado o header due um monte de warning avisando que tinha uma chamada de função implicita no codigo porém não sabia nada da função
+
+Além disso quando tentei usar a função ela deu o resultado completamente errado. Input 4 saida 0
+
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex3 ex3.c labaux.c
+ex3.c: In function ‘main’:
+ex3.c:13:35: warning: implicit declaration of function ‘foo’ [-Wimplicit-function-declaration]
+   13 |   printf ("foo(%.2f): %.2f\n", f, foo(f));
+      |                                   ^~~
+ex3.c:13:26: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+   13 |   printf ("foo(%.2f): %.2f\n", f, foo(f));
+      |                       ~~~^        ~~~~~~
+      |                          |        |
+      |                          double   int
+      |                       %.2d
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex3 4
+foo(4.00): 0.00
+@luangib ➜ /workspaces/inf1018/b (main) $ 
+
+(5.a) Dump
+A função dump imprime o valor armazenado na memória byte a byte. 
+
+Os testes deram todos certo, pois no primeiro me deu 1 como tinha passado. 
+No segundo era para dar 49 já que "1" em ASCII corresponde a 49
+Já a outra é a representação em int que tem 4 bytes só que exibida ao contrario já que começa pelo ultimo
+E aultima pois uma string precisa do \0 que na memoria correponde a 0 e depois o outro elemento da string com sua numeração do ASCII
+
+
+@luangib ➜ /workspaces/inf1018/b (main) $ gcc -Wall -o ex4 ex4.c dump.c
+@luangib ➜ /workspaces/inf1018/b (main) $ ./ex4
+valor de c1: 1 -> na memória: 1 
+valor de c2: 49 -> na memória: 49 
+valor de i: 1 -> na memória: 1 0 0 0 
+valor de v: 1 -> na memória: 49 0 
+@luangib ➜ /workspaces/inf1018/b (main) $ 
+
+
+
+
+

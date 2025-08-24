@@ -1,0 +1,12 @@
+coloquei os dois codigos no mesmo arquivo dump.c e compilei. Depois rodar o executavel que me deu as seguintes informações
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./a
+0x7ffed62262c4 - 10
+0x7ffed62262c5 - 27
+0x7ffed62262c6 - 00
+0x7ffed62262c7 - 00
+
+Isso é a representação em uma maquina litlle engine do numero 1000 em hexacimal ou seja
+
+0000 0000 0010 0111 0001 000
+

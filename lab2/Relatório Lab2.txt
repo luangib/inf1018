@@ -67,4 +67,39 @@ O numero de iterações que esse codigo faz é igual ao numero de algarismos que
 
 (2. B)
 
+Fiz a b mudando a parte do a*10 onde 10 foi substituido pela variavel base que dada como parmetro da função.
 
+os resultados dos testes de 
+int main (void) {
+  printf("==> %d\n", string2num("0010", 2));
+  printf("==> %d\n", string2num("1234",10) );
+  return 0;
+}
+
+deram 
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex2b
+==> 2
+==> 1234
+
+Então esta correta
+
+(2. B)
+
+A unic acomdificação que fiz um if e else em que se a entrada for maior que '9' o calculo dea será a partir de a*base + (*s - 'a'+10) e se não funciona da forma normal.
+
+Testes
+
+  printf("%d\n", string2num("1a", 16));
+  printf("%d\n", string2num("a09b", 16));
+  printf("%d\n", string2num("z09b", 36));
+
+Resultados:
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex2c
+26
+41115
+1633295
+
+
+Para responder a pergunta de qual a maior base que podemos representar é só pensarmos em quantos algarismos temos que é o total do alfabeto +10 ouse seja a maior base que conseguimos ter desta maneira é 36.

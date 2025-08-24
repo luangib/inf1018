@@ -1,3 +1,5 @@
+(1. A)
+
 coloquei os dois codigos no mesmo arquivo dump.c e compilei. Depois rodar o executavel que me deu as seguintes informações
 
 luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./a
@@ -6,7 +8,53 @@ luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/l
 0x7ffed62262c6 - 00
 0x7ffed62262c7 - 00
 
+
 Isso é a representação em uma maquina litlle engine do numero 1000 em hexacimal ou seja
 
 0000 0000 0010 0111 0001 000
+
+(1. B)
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1b
+0x7fff20112a40 - 10
+0x7fff20112a41 - 27
+0x7fff20112a42 - 00
+0x7fff20112a43 - 00
+0x7fff20112a44 - 00
+0x7fff20112a45 - 00
+0x7fff20112a46 - 00
+0x7fff20112a47 - 00
+
+isso forma o mesmo numero porém agora com mais bytes de tamanho saiu de 4 bytes para 8
+
+(1. C)
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1c
+0x7ffeec20ac86 - 10
+0x7ffeec20ac87 - 27
+
+isso mostra o mesmo numero das anteires porém agora com somente 2 bytes de tamanho.
+
+
+(1. D)
+
+Eu atribui para char i = 'a' e o terminal me deu o seguinte resultado
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1d
+0x7ffef2607bd7 - 61
+
+61 assim como indicado acima é a representação numerica do 'a' em hexadecimal. Em binario fica  
+
+0110 0001 que em dicamal é 97.
+
+
+(1. E)
+
+Para saber o correspodente de todos na tabela ASCII fiz   char p[] = "A \n$"; Assim terei em ordem o calor de cada um 
+
+'A' = 0x41
+' ' = 0x20
+'\n'= 0x0a
+'$' = 0x24
+'\0'= 0x00
+
+
 

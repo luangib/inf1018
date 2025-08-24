@@ -58,3 +58,13 @@ Para saber o correspodente de todos na tabela ASCII fiz   char p[] = "A \n$"; As
 
 
 
+(2. A)
+
+Lendo o condigo oque eu entendi é que ele tem como abjetivo converter uma string para um numero inteiro. Ele faz isso diminuindo a representação ASCII entre o numero da string e o '0', assim conseguindo o real valor do numero. Depois usa uma de a*10 para ir colocar os numeros em suas devidas casas(dezena, centena e assim em diante). 
+
+O numero de iterações que esse codigo faz é igual ao numero de algarismos que o numero possui, explora uma das caracteristicas da string, ela ser terminada em \0, como condição do for, para parar no final da string.
+
+
+(2. B)
+
+

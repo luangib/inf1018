@@ -1,0 +1,105 @@
+(1. A)
+
+coloquei os dois codigos no mesmo arquivo dump.c e compilei. Depois rodar o executavel que me deu as seguintes informações
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./a
+0x7ffed62262c4 - 10
+0x7ffed62262c5 - 27
+0x7ffed62262c6 - 00
+0x7ffed62262c7 - 00
+
+
+Isso é a representação em uma maquina litlle engine do numero 1000 em hexacimal ou seja
+
+0000 0000 0010 0111 0001 000
+
+(1. B)
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1b
+0x7fff20112a40 - 10
+0x7fff20112a41 - 27
+0x7fff20112a42 - 00
+0x7fff20112a43 - 00
+0x7fff20112a44 - 00
+0x7fff20112a45 - 00
+0x7fff20112a46 - 00
+0x7fff20112a47 - 00
+
+isso forma o mesmo numero porém agora com mais bytes de tamanho saiu de 4 bytes para 8
+
+(1. C)
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1c
+0x7ffeec20ac86 - 10
+0x7ffeec20ac87 - 27
+
+isso mostra o mesmo numero das anteires porém agora com somente 2 bytes de tamanho.
+
+
+(1. D)
+
+Eu atribui para char i = 'a' e o terminal me deu o seguinte resultado
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex1d
+0x7ffef2607bd7 - 61
+
+61 assim como indicado acima é a representação numerica do 'a' em hexadecimal. Em binario fica  
+
+0110 0001 que em dicamal é 97.
+
+
+(1. E)
+
+Para saber o correspodente de todos na tabela ASCII fiz   char p[] = "A \n$"; Assim terei em ordem o calor de cada um 
+
+'A' = 0x41
+' ' = 0x20
+'\n'= 0x0a
+'$' = 0x24
+'\0'= 0x00
+
+
+
+(2. A)
+
+Lendo o condigo oque eu entendi é que ele tem como abjetivo converter uma string para um numero inteiro. Ele faz isso diminuindo a representação ASCII entre o numero da string e o '0', assim conseguindo o real valor do numero. Depois usa uma de a*10 para ir colocar os numeros em suas devidas casas(dezena, centena e assim em diante). 
+
+O numero de iterações que esse codigo faz é igual ao numero de algarismos que o numero possui, explora uma das caracteristicas da string, ela ser terminada em \0, como condição do for, para parar no final da string.
+
+
+(2. B)
+
+Fiz a b mudando a parte do a*10 onde 10 foi substituido pela variavel base que dada como parmetro da função.
+
+os resultados dos testes de 
+int main (void) {
+  printf("==> %d\n", string2num("0010", 2));
+  printf("==> %d\n", string2num("1234",10) );
+  return 0;
+}
+
+deram 
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex2b
+==> 2
+==> 1234
+
+Então esta correta
+
+(2. B)
+
+A unic acomdificação que fiz um if e else em que se a entrada for maior que '9' o calculo dea será a partir de a*base + (*s - 'a'+10) e se não funciona da forma normal.
+
+Testes
+
+  printf("%d\n", string2num("1a", 16));
+  printf("%d\n", string2num("a09b", 16));
+  printf("%d\n", string2num("z09b", 36));
+
+Resultados:
+
+luangib@luangib-Lenovo-ideapad-310-15ISK:~/Documentos/Pastas do github/inf1018/lab2$ ./ex2c
+26
+41115
+1633295
+
+
+Para responder a pergunta de qual a maior base que podemos representar é só pensarmos em quantos algarismos temos que é o total do alfabeto +10 ouse seja a maior base que conseguimos ter desta maneira é 36.

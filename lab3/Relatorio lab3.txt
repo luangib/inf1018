@@ -1,0 +1,11 @@
+1)
+
+Na letra A fiz um x & 0xFF pois assim mantenho o bit menos significativo  como os de x já que 1 é o elemento neutro do elemento do  AND
+
+Na letra B fiz um x | 0x FF 00 00 00 assim mantenho coloco todos o do primeiro butes como 1 enquanto mantenho os mesmo valores que x tem no resto já que 0 é o elemento neutro do OR
+
+@luangib ➜ /workspaces/inf1018/lab3 (main) $ ./ex1
+00000021 ff654321
+
+2)
+

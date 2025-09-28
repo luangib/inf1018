@@ -27,3 +27,13 @@ Se for 1 → número ímpar de bits 1.
 
 Se for 0 → número par de bits 1.
 
+3)
+
+(a)
+
+A função switch_byte troca os dois nibbles de um byte.
+Primeiro isola a parte alta com 0xF0 e desloca 4 bits para a direita.
+Depois isola a parte baixa com 0x0F e desloca 4 bits para a esquerda.
+Por fim, soma as duas partes e obtém o byte invertido (ex.: 0xAB → 0xBA).
+
+(b)

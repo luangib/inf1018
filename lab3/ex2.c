@@ -2,7 +2,7 @@
 
 int odd_ones(unsigned int x){
 
-    int count;
+    int count=0;
     for (int i = 0; i < 32; i++)
     {
         count= count+ (x&1);

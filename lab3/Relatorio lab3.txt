@@ -9,3 +9,21 @@ Na letra B fiz um x | 0x FF 00 00 00 assim mantenho coloco todos o do primeiro b
 
 2)
 
+O problema pede para verificar se um número inteiro sem sinal possui uma quantidade ímpar de bits 1 em sua representação binária. Para isso, não é permitido usar o operador %.
+
+O raciocínio é simples:
+
+Percorrer todos os 32 bits do número.
+
+Em cada passo, usar x & 1 para verificar o bit menos significativo.
+
+Se for 1, incrementa a contagem.
+
+Deslocar x para a direita (x >> 1) e repetir até processar todos os bits.
+
+Ao final, verificar apenas se a contagem é ímpar ou par, o que pode ser feito com count & 1.
+
+Se for 1 → número ímpar de bits 1.
+
+Se for 0 → número par de bits 1.
+

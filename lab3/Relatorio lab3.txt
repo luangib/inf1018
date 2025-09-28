@@ -37,3 +37,9 @@ Depois isola a parte baixa com 0x0F e desloca 4 bits para a esquerda.
 Por fim, soma as duas partes e obtém o byte invertido (ex.: 0xAB → 0xBA).
 
 (b)
+
+(x << n) desloca x n bits para a esquerda. Os bits mais à esquerda “saem” do byte e normalmente seriam perdidos.
+
+(x >> (8 - n)) desloca x para a direita, pegando justamente os bits que sairiam à esquerda e colocando-os na parte baixa do byte.
+
+O | combina os dois resultados: os bits deslocados para a esquerda e os bits que voltaram da direita, formando o byte final com todos os bits corretamente rotacionados.
